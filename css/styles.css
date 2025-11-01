@@ -1,0 +1,126 @@
+/* Advanced styles for a dreamy UI */
+body {
+    background: linear-gradient(135deg, #1e3a8a, #111827);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism form container */
+form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo styling */
+.logo {
+    background: linear-gradient(45deg, #0056A2, #F47C20);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Step transitions */
+.step {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.step.hidden {
+    opacity: 0;
+    transform: translateY(1rem);
+    display: none;
+}
+
+/* Form inputs */
+.form-input, .form-select, .form-textarea {
+    background: rgba(31, 41, 55, 0.8);
+    border: none;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    background: rgba(31, 41, 55, 1);
+    ring: 2px solid #F47C20;
+    box-shadow: 0 0 10px rgba(244, 124, 32, 0.3);
+}
+
+/* Radio buttons */
+.form-radio {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #6b7280;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.form-radio:checked {
+    border-color: #F47C20;
+    background: #F47C20;
+    box-shadow: 0 0 8px rgba(244, 124, 32, 0.5);
+}
+
+/* Buttons */
+button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+button:hover::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* Progress bar */
+#progress {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Validation shake animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.animate-shake {
+    animation: shake 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    .logo {
+        font-size: 1.75rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Loader */
+#loader svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
